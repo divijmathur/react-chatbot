@@ -1,2 +1,5 @@
 node_modules
 .idea
+config/dev.js
+config
+.env
