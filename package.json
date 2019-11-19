@@ -8,7 +8,10 @@
     "npm": "6.13.0"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "backend": "nodemon index.js",
+    "frontend": "npm run front --prefix client",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\""
   },
   "keywords": [],
   "author": "",
@@ -17,5 +20,8 @@
     "body-parser": "^1.19.0",
     "dialogflow": "^0.14.1",
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "concurrently": "^5.0.0"
   }
 }
