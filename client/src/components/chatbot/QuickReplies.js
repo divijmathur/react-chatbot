@@ -1,29 +1,29 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import QuickReply from './QuickReply';
 
-import QuickReply from "./QuickReply";
 
 class QuickReplies extends Component {
     constructor(props) {
         super(props);
-        this._handleClick = this._handleClick.bind(this)
+        this._handleClick = this._handleClick.bind(this);
     }
 
     _handleClick(event, payload, text) {
         this.props.replyClick(event, payload, text);
-
     }
 
-    renderQuickReply(reply, i){
-        return <QuickReply key={i} click={this._handleClick} reply={reply} />
+    renderQuickReply(reply, i) {
+        return <QuickReply key={i} click={this._handleClick} reply={reply} />;
     }
 
-    renderQuickReplies(quickReplies){
+    renderQuickReplies(quickReplies) {
         if (quickReplies) {
             return quickReplies.map((reply, i) => {
-                return this.renderQuickReply(reply, i)
-            })
+                    return this.renderQuickReply(reply, i);
+                }
+            )
         } else {
-            return null
+            return null;
         }
     }
 
@@ -33,20 +33,20 @@ class QuickReplies extends Component {
                 <div className="card-panel grey lighten-5 z-depth-1">
                     <div className="row valign-wrapper">
                         <div className="col s2">
-                            <a className="btn-floating btn-large waves-effect waves-light red">{this.props.speaks}</a>
+                            <a href="/" className="btn-floating btn-large waves-effect waves-light red">{this.props.speaks}</a>
                         </div>
                         <div id="quick-replies" className="col s10">
-                            {this.props.text && <p> 
-                                {this.props.text.stringValue}
-                                </p>
+                            {this.props.text && <p>
+                                {this.props.text}
+                            </p>
                             }
                             {this.renderQuickReplies(this.props.payload)}
                         </div>
                     </div>
                 </div>
             </div>
-        )
+        );
     }
 }
 
-export default QuickReplies
+export default QuickReplies;

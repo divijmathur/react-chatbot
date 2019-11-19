@@ -1,11 +1,9 @@
-import React from "react"
+import React from 'react';
 
-const ItemList = () => {
-    return (
-        <div>
-            Here goes a List of items 
-        </div>
-    )
-}
+const ItemList = () => (
+    <div>
+        <h1>Here goes a list of items</h1>
+    </div>
+)
 
-export default ItemList
+export default ItemList;

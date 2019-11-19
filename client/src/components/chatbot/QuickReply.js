@@ -1,27 +1,29 @@
-import React from "react"
+import React from 'react';
+
 
 const QuickReply = (props) => {
-
-    if(props.reply.structValue.fields.payload){
+    if (props.reply.payload) {
         return (
-            <a style={{margin: 3}} href="" className="btn-floating btn-large waves-effect waves-light red" 
-                onClick={(event) => 
-                    props.click(
-                        event,
-                        props.reply.structValue.fields.payload.stringValue,
-                        props.reply.structValue.fields.text.stringValue,
-                    )
-                }>
-                {props.reply.structValue.fields.text.stringValue}
+            <a style={{ margin: 3}} href="/" className="btn-floating btn-large waves-effect waves-light red"
+               onClick={(event) =>
+                   props.click(
+                       event,
+                       props.reply.payload,
+                       props.reply.text
+                   )
+               }>
+                {props.reply.text}
             </a>
-        )
+        );
     } else {
         return (
-            <a href={props.reply.structValue.fields.link.stringValue} className="btn-floating btn-large waves-effect waves-light red">
-                {props.reply.structValue.fields.text.stringValue}
+            <a style={{ margin: 3}} href={props.reply.link}
+               className="btn-floating btn-large waves-effect waves-light red">
+                {props.reply.text}
             </a>
-        )
+        );
     }
-}
 
-export default QuickReply
+};
+
+export default QuickReply;
